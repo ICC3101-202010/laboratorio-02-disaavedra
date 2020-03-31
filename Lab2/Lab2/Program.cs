@@ -34,7 +34,7 @@ namespace Lab2
             while (s1 != "3")
             {
 
-                Console.WriteLine("\nElige un opcion ingresando 1, 2 o 3\n" +
+                Console.WriteLine("\nElige un opcion ingresando 1, 2, 3, 4, 5 o 6\n" +
                   "\n[1] Ver todas las canciones." +
                   "\n[2] Agregar una cancion." +
                   "\n[3] Salir del programa." +
