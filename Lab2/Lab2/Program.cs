@@ -39,8 +39,8 @@ namespace Lab2
                   "\n[2] Agregar una cancion." +
                   "\n[3] Salir del programa." +
                   "\n[4] Ver canciones por criterio." +
-                  "\n[5] Agregar Playlist" +
-                  "\n[6] Ver Playlist");
+                  "\n[5] Crear Playlist" +
+                  "\n[6] Ver mis Playlist");
 
                 s1 = Console.ReadLine();
 
@@ -152,7 +152,7 @@ namespace Lab2
 
                     case "6":
 
-                        Console.WriteLine("\nSus Playlist son:");
+                        Console.WriteLine("\nSus Playlist son:\n");
 
                         listaCancion.VerMisPlaylists();
 

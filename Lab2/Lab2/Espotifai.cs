@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Lab2
 {
     class Espotifai
@@ -122,13 +123,11 @@ namespace Lab2
 
         public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
         {
-            List<String> listaMomentanea = new List<String>();
+            List<String> listaMomentanea2 = new List<String>();
 
             int contador = 0;
 
             int ayuda = 0;
-
-            listaMomentanea.Add(nombrePlaylist);
 
             if (criterio == "Genero")
             {
@@ -136,13 +135,7 @@ namespace Lab2
                 {
                     if (valorCriterio == i[0])
                     {
-                        listaMomentanea.Add(listaCanciones[contador][0]);
-
-                        listaMomentanea.Add(listaCanciones[contador][1]);
-
-                        listaMomentanea.Add(listaCanciones[contador][2]);
-
-                        listaMomentanea.Add(listaCanciones[contador][3]);
+                        listaMomentanea2.Add("genero: " + listaCanciones[contador][0] + ", artista: " + listaCanciones[contador][1] + ", album: " + listaCanciones[contador][2] + ", nombre: " + listaCanciones[contador][3]);
 
                         ayuda++;
                     }
@@ -166,15 +159,9 @@ namespace Lab2
             {
                 foreach (var i in listaCanciones)
                 {
-                    if (valorCriterio == i[0])
+                    if (valorCriterio == i[1])
                     {
-                        listaMomentanea.Add(listaCanciones[contador][0]);
-
-                        listaMomentanea.Add(listaCanciones[contador][1]);
-
-                        listaMomentanea.Add(listaCanciones[contador][2]);
-
-                        listaMomentanea.Add(listaCanciones[contador][3]);
+                        listaMomentanea2.Add("genero: " + listaCanciones[contador][0] + ", artista: " + listaCanciones[contador][1] + ", album: " + listaCanciones[contador][2] + ", nombre: " + listaCanciones[contador][3]);
 
                         ayuda++;
                     }
@@ -198,15 +185,9 @@ namespace Lab2
             {
                 foreach (var i in listaCanciones)
                 {
-                    if (valorCriterio == i[0])
+                    if (valorCriterio == i[2])
                     {
-                        listaMomentanea.Add(listaCanciones[contador][0]);
-
-                        listaMomentanea.Add(listaCanciones[contador][1]);
-
-                        listaMomentanea.Add(listaCanciones[contador][2]);
-
-                        listaMomentanea.Add(listaCanciones[contador][3]);
+                        listaMomentanea2.Add("genero: " + listaCanciones[contador][0] + ", artista: " + listaCanciones[contador][1] + ", album: " + listaCanciones[contador][2] + ", nombre: " + listaCanciones[contador][3]);
 
                         ayuda++;
                     }
@@ -230,15 +211,9 @@ namespace Lab2
             {
                 foreach (var i in listaCanciones)
                 {
-                    if (valorCriterio == i[0])
+                    if (valorCriterio == i[3])
                     {
-                        listaMomentanea.Add(listaCanciones[contador][0]);
-
-                        listaMomentanea.Add(listaCanciones[contador][1]);
-
-                        listaMomentanea.Add(listaCanciones[contador][2]);
-
-                        listaMomentanea.Add(listaCanciones[contador][3]);
+                        listaMomentanea2.Add("genero: " + listaCanciones[contador][0] + ", artista: " + listaCanciones[contador][1] + ", album: " + listaCanciones[contador][2] + ", nombre: " + listaCanciones[contador][3]);
 
                         ayuda++;
                     }
@@ -260,9 +235,10 @@ namespace Lab2
 
             if (activador == 1)
             {
-                listaMomentanea.Add(nombrePlaylist);
 
-                listaAlmacenarPlaylist.Add(listaMomentanea);
+                listaMomentanea2.Add(nombrePlaylist);
+
+                listaAlmacenarPlaylist.Add(listaMomentanea2);
 
                 activador--;
 
@@ -273,16 +249,16 @@ namespace Lab2
             {
                 foreach (var i in listaAlmacenarPlaylist)
 
-                    if (i[4] == nombrePlaylist)
+                    if (i[i.Count - 1] == nombrePlaylist)
 
                         return false;
             }
 
             else
             {
-                listaMomentanea.Add(nombrePlaylist);
+                listaMomentanea2.Add(nombrePlaylist);
 
-                listaAlmacenarPlaylist.Add(listaMomentanea);
+                listaAlmacenarPlaylist.Add(listaMomentanea2);
             }
 
             return true;
@@ -290,16 +266,22 @@ namespace Lab2
 
         public void VerMisPlaylists() 
         {
+            List<String> listaMomentaneaInformacion = new List<String>();
+
+            int contador = 0;
+
             foreach (var i in listaAlmacenarPlaylist)
             {
-                Console.WriteLine($"Nombre Playlist: {i[4]}");
+                Console.WriteLine($"Nombre Playlist: {i[i.Count-1]}\n");
 
-                Console.WriteLine("\ngenero: " + i[0] + ", artista: " + i[1] + ", album: " + i[2] + ", nombre: " + i[3]);
+                Console.WriteLine(i[contador]);
+
+                contador++;
             }
 
             if (activador == 1)
 
-                Console.WriteLine("No tiene Playlist disponibles");
+                Console.WriteLine("\nNo tiene Playlist disponibles");
 
         }
     }
